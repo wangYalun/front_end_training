@@ -45,18 +45,18 @@ $ http-server //建立服务器，默认端口号8080
 
 7. 前端入门推荐学习教程
 > 学习前端说白了就是学习JavaScript,html,css三大Web技术
-1. [慕课网 html+css基础教程](http://www.imooc.com/learn/9)
-2. [慕课网 JavaScript入门篇](http://www.imooc.com/learn/36)
+- [慕课网 html+css基础教程](http://www.imooc.com/learn/9)
+- [慕课网 JavaScript入门篇](http://www.imooc.com/learn/36)
 
 8. 推荐Web文档网站
 > 前端东西繁杂，需要记住一些好用的文档查询网站。
-1. [MDN Web文档](https://developer.mozilla.org/zh-CN/)，这是一个非常全面的网站，想加强HTML，CSS基础，我认为需要完整的阅读里面的文档，并自己写实验例子。
-2. [w3school](http://www.w3school.com.cn/html/index.asp)
+- [MDN Web文档](https://developer.mozilla.org/zh-CN/)，这是一个非常全面的网站，想加强HTML，CSS基础，我认为需要完整的阅读里面的文档，并自己写实验例子。
+- [w3school](http://www.w3school.com.cn/html/index.asp)
 
 9. 推荐进阶书籍
 > 前端关键的点在于对JavaScript这门语言的掌握程度，所以当了解了前端的基本内容后，就需要加强对前端本质的了解。
-1. 首先吐血推非常著名的红宝书，《JavaScript高级程序设计》，目前出到了第三版，如果对这本书能了解透彻，那么你的前端技术就上了阶层了。“第几层？”，“额...”
-2. 然后再推荐非常权威的犀牛书，《JavaScript权威指南》，目前出到了第六版，这本书是JavaScript的内功秘籍，学了这本书，再学习其他的功能啊，框架啊，简直易如反掌。
+- 首先吐血推非常著名的红宝书，《JavaScript高级程序设计》，目前出到了第三版，如果对这本书能了解透彻，那么你的前端技术就上了阶层了。“第几层？”，“额...”
+- 然后再推荐非常权威的犀牛书，《JavaScript权威指南》，目前出到了第六版，这本书是JavaScript的内功秘籍，学了这本书，再学习其他的功能啊，框架啊，简直易如反掌。
 
 10. github 这是一个免费的代码管理网站。
 > 这个暂时先不说吧，你现在看的就是我提交到github上的内容。
