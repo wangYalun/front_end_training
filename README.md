@@ -1,19 +1,20 @@
 ### 1. 环境安装
 
 1. 安装NodeJS 
-- [Node 64](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x64.msi)
-- [Node 32](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x86.msi)
+> Node.js是一个JavaScript运行环境(runtime), 目前前端开发大都依赖于这个环境。 要学会使用Windows 命令行操作。
+- [Node 64位](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x64.msi) 如果电脑操作系统是64位的，安装这个
+- [Node 32位](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x86.msi) 如果电脑操作系统是32位的，安装这个
 
 2. 安装编辑器
-- [Sublime Text 3 非常好用的文本编辑器](https://download.sublimetext.com/Sublime%20Text%20Build%203143%20x64%20Setup.exe)
+- [Sublime Text 3 非常好用的文本编辑器](https://download.sublimetext.com/Sublime%20Text%20Build%203143%20x64%20Setup.exe)，学习使用文本编辑器的快捷键使用方式也很重要。
 - [Visual Studio Code 前端开发利器](https://code.visualstudio.com/Download)
 
 3. 安装浏览器
 
-> 一般前端开发需要安装IE,Chrome,FireFox等浏览器，可百度后自行安装。
+> 一般前端开发需要安装IE,Chrome,FireFox等浏览器，可百度后自行安装。安装浏览器后要学会浏览器的调试方法。
 
 4. Node环境配置
-> 打开Windows的命令管理输入界面，win+R  
+> 打开Windows的命令管理输入界面，win+R ，输入CMD，回车，具体操作看 “电脑操作教程”->计算机操作基础.md 的文档
 ```
 //全局安装淘宝镜像 cnpm 包管理工具，npm 速度太慢了，所以用这个代替
 $ npm install -g cnpm
@@ -60,3 +61,6 @@ $ http-server //建立服务器，默认端口号8080
 
 10. github 这是一个免费的代码管理网站。
 > 这个暂时先不说吧，你现在看的就是我提交到github上的内容。
+
+### 学习心态
+> 前端的学习一定要摆正好心态，也许自己什么都不懂，甚至连最基本的计算机操作都不会，这些都没有关系。最最可怕的是知难而退，没有恒心。作为一个程序员，要学习的东西非常多，但现在知识获取非常快捷，要养成一个好习惯不懂得就去百度。 这个教程很多的是告诉你要去学习什么，要用什么工具，具体怎么学习，工具怎么用，这些都是可以自己百度后去学习的。 “当你学会里百度，你就是一个非常智慧的人”，例如上面我提到的github ，好学的人肯定会去百度一下github 是什么东西，它有什么用。 
