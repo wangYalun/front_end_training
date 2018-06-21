@@ -11,10 +11,10 @@
 
 3. 安装浏览器
 
-> 一般前端开发需要安装IE,Chrome,FireFox等浏览器，可百度后自行安装。安装浏览器后要学会浏览器的调试方法。
+> 一般前端开发需要安装IE,Chrome,FireFox等浏览器，可百度后自行安装。安装浏览器后要学会浏览器的调试方法。[Chrome浏览器调试大全](https://blog.csdn.net/xueer767/article/details/65936204?locationNum=8&fps=1)
 
 4. Node环境配置
-> 打开Windows的命令管理输入界面，win+R ，输入CMD，回车，具体操作看 “电脑操作教程”->计算机操作基础.md 的文档
+> 打开Windows的命令管理输入界面，win+R ，输入CMD，回车
 ```
 //全局安装淘宝镜像 cnpm 包管理工具，npm 速度太慢了，所以用这个代替
 $ npm install -g cnpm
