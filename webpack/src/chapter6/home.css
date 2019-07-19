@@ -1,0 +1,5 @@
+.color-red {
+    display: flex;
+    color: red;
+    font-size: 20px !important;
+}
