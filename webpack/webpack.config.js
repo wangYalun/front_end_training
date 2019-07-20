@@ -1,8 +1,12 @@
 const path = require('path');
 
+const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isProd = 'production' === process.env.NODE_ENV;
 
 const srcRoot = path.resolve(__dirname, './src');
 const distRoot = path.resolve(__dirname, './dist');
@@ -10,7 +14,8 @@ const distRoot = path.resolve(__dirname, './dist');
 module.exports = {
     context: path.resolve(__dirname, "./src"), // context可以理解为资源入口的路径前缀，在配置时要求必须使用绝对路径的形式，context可以省略，默认值为当前工程的根目录。
     entry: {
-        app: './app.js'
+        app: './app.js',
+        vendor: ['react']
     },
     // 入口文件,
     /** entry的配置可以是多种形式：字符串，数组，对象，函数 */
@@ -18,9 +23,12 @@ module.exports = {
     // 数组类型入口，传入一个数组的作用是将多个资源预先合并，在打包的时候webpack会将数组中的最后一个元素作为实际的入口路径
     output: {
         path: distRoot,
-        // filename: "app.js"
+        filename: '[name]@[chunkhash].js'
+        // filename: '[name].js',
+        // chunkFilename: '[name].js'
     },
-    mode: "development",
+    mode: isProd ? 'production' : 'development', // 可以切换为production
+    devtool: 'source-map',
     devServer: {
         contentBase: distRoot, // 标识server 文件的根目录
         port: 3000,
@@ -70,7 +78,9 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 use: [
                     { loader: "force-strict-loader" }, // 通过NPM 软链安装
-                    { loader: 'babel-loader' },
+                    {
+                        loader: 'babel-loader'
+                    },
                     { loader: 'eslint-loader' }
                 ],
                 // enfore:pre , //代表它将在所有正常loader之前执行，这样可以保住其检测的代码不是被其他loader更改过的。post 代表最后执行
@@ -83,10 +93,16 @@ module.exports = {
             filename: path.resolve(distRoot, 'index.html'),
             template: path.resolve(srcRoot, './index.html')
         }),
+        // 这个用于提取CSS文件
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
+        }),
+        // 定义
+        new webpack.DefinePlugin({
+            ENV: JSON.stringify('production')
         })
+
     ],
     // optimization: {
     //     // Automatically split vendor and commons

@@ -9,7 +9,8 @@
         "document": true,
         "module": true,
         "require": true,
-        "console": true
+        "console": true,
+        "ENV": true
     },
     "rules": {
         "react/prop-types": "off",
