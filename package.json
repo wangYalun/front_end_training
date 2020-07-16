@@ -1,0 +1,22 @@
+{
+  "name": "front_end_training",
+  "version": "1.0.0",
+  "description": "1. 安装NodeJS \r > Node.js是一个JavaScript运行环境(runtime), 目前前端开发大都依赖于这个环境。 要学会使用Windows 命令行操作。\r - [Node 64位](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x64.msi) 如果电脑操作系统是64位的，安装这个\r - [Node 32位](https://npm.taobao.org/mirrors/node/v8.7.0/node-v8.7.0-x86.msi) 如果电脑操作系统是32位的，安装这个",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangYalun/front_end_training.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangYalun/front_end_training/issues"
+  },
+  "homepage": "https://github.com/wangYalun/front_end_training#readme",
+  "dependencies": {
+    "mathjs": "^7.0.1"
+  }
+}
