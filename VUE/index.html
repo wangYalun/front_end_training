@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VUE学习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <style>
+      .color-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-once>{{message}}</div>
+      <div>{{reversedMessage}}</div>
+      <div>{{now}}</div>
+      <div>{{nowFun()}}</div>
+      <div>{{fullName}}</div>
+      <todo-item name="allen"></todo-item>
+      <div v-html="message"></div>
+      问一个回到 是 和 否 的问题<input v-model.lazy="question" />
+      <p>{{answer}}</p>
+      <button @click="greet">问候</button>
+    </div>
+  </body>
+  <script>
+    Vue.component("todo-item", {
+      data: function () {
+        return {
+          msg: "点歌的人",
+        };
+      },
+      props: ["name"],
+      template: "<li class='color-red'>{{msg}}{{name}}</li>",
+    });
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message: "Hello World!",
+        firstName: "allen",
+        lastName: "wang",
+        question: "",
+        answer: "I cannot give you an answer until you ask a question!",
+      },
+      created: function () {
+        this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
+      },
+      computed: {
+        reversedMessage: function () {
+          //   return Array.prototype.reverse.call(this.message);
+          return this.message.split("").reverse().join("");
+        },
+        now: function () {
+          return Date.now();
+        },
+        fullName: {
+          set: function (newValue) {
+            var names = newValue.split(" ");
+            this.firstName = names[0];
+            this.lastName = names[names.length - 1];
+          },
+          get: function () {
+            return this.firstName + " " + this.lastName;
+          },
+        },
+      },
+      methods: {
+        greet: function (event) {
+          alert("Hello, World!");
+        },
+        nowFun: function () {
+          return Date.now();
+        },
+        getAnswer: function () {
+          if (
+            this.question.indexOf("?") === -1 &&
+            this.question.indexOf("？") === -1
+          ) {
+            this.answer = "问题通常以？结尾 ;-)";
+            return;
+          }
+          this.answer = "Thinking...";
+          var vm = this;
+          setTimeout(function () {
+            vm.answer = Math.random() < 0.5 ? "YES" : "NO";
+          }, 3000);
+          //   axios
+          //     .get("https://yesno.wtf/api")
+          //     .then(function (response) {
+          //       vm.answer = _.capitalize(response.data.answer);
+          //     })
+          //     .catch(function (error) {
+          //       vm.answer = "Error! Could not reach the API. " + error;
+          //     });
+        },
+      },
+      watch: {
+        question: function (newValue, oldValue) {
+          console.log(newValue, oldValue);
+          this.answer = "等待你的输入完成...";
+          this.debouncedGetAnswer();
+        },
+      },
+    });
+    setTimeout(function () {
+      app.message = "人的一生呐，就一堆堆坎坷";
+    }, 5000);
+  </script>
+</html>

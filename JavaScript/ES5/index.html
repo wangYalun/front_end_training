@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>浏览器环境测试</title>
+    <!-- <script type="text/javascript" src="ES5/ajax.js"></script> -->
+    <style>
+      .row {
+        display: flex;
+      }
+      .row .col-2 {
+        flex: 0 0 16.6666667%;
+      }
+      .row .col-7 {
+        flex: 0 0 58.33333%;
+      }
+      .row .col-3 {
+        flex: 0 0 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-2">1</div>
+      <div class="col-7">2</div>
+      <div class="col-3">3</div>
+    </div>
+    <button id="btn">按钮</button>
+    <script>
+      function createTheDom() {
+        var divDom = document.createElement("div");
+        divDom.setAttribute("id", "example");
+        var pDom = document.createElement("p");
+        pDom.classList.add("slogan");
+        pDom.appendChild(document.createTextNode("淘！你喜欢"));
+        divDom.appendChild(pDom);
+        document.body.appendChild(divDom);
+      }
+      createTheDom();
+
+      function throttle(func, delay) {
+        var lastRunTime = 0;
+        return function () {
+          var now = +new Date();
+          if (now - lastRunTime > delay) {
+            func.apply(this, arguments);
+            lastRunTime = now;
+          }
+        };
+      }
+      document.getElementById("btn").addEventListener(
+        "click",
+        throttle(function () {
+          console.log(+new Date());
+        }, 1000)
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VUE学习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <style>
+      .color-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <router-view />
+    </div>
+  </body>
+  <script>
+    const PageHome = {
+      template: "<p>This is the home page<p>",
+    };
+    const PageAbout = {
+      template: "<p>This is the about page</p>",
+    };
+    const router = new VueRouter({
+      routes: [
+        { path: "/", component: PageHome },
+        { path: "/about", component: PageAbout },
+      ],
+    });
+    new Vue({
+      el: "#app",
+      router,
+    });
+  </script>
+</html>
