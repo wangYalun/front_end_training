@@ -32,10 +32,11 @@ var addTwoNumbers = function (l1, l2) {
 
   var hasAllNext = true;
   while (hasAllNext) {
-    let tempSub = currentL1.val + currentL2.val + currentResult.val;
+    let tempSub =
+      currentL1.val + currentL2.val + (currentResult ? currentResult.val : 0);
     console.log(currentL1.val, currentL2.val, currentResult.val);
     // console.log(currentResult);
-    console.log("tempSub", tempSub);
+
     if (tempSub >= 10) {
       currentResult.val = tempSub - 10;
       currentResult.next = new ListNode(1);
@@ -44,10 +45,6 @@ var addTwoNumbers = function (l1, l2) {
     }
     currentL1 = currentL1.next;
     currentL2 = currentL2.next;
-    if (currentResult.next == null) {
-      currentResult.next = new ListNode();
-    }
-    currentResult = currentResult.next;
 
     if (currentL1 == null && currentL2 == null) {
       hasAllNext = false;
@@ -56,9 +53,15 @@ var addTwoNumbers = function (l1, l2) {
     } else if (currentL2 == null) {
       currentL2 = new ListNode();
     }
+    if (hasAllNext) {
+      if (currentResult.next == null) {
+        currentResult.next = new ListNode();
+      }
+      currentResult = currentResult.next;
+    }
     // console.log("currentResult", currentResult);
   }
- 
+
   return resultL;
 };
 
