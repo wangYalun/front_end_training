@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React学习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./react.development.js" crossorigin></script>
+    <script src="./react-dom.development.js" crossorigin></script>
+    <script src="./babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class Test extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            count: 0,
+          };
+        }
+        add = () => {
+          const { count } = this.state;
+          this.setState({
+            count: count + 1,
+          });
+        };
+
+        getSnapshotBeforeUpdate(props, state) {
+          console.log("getSnapshotBeforeUpdate", props, state);
+          return "allen"
+        //   return {...props,...state}
+        }
+
+        componentDidUpdate(...a) {
+          console.log("componentDidUpdate", a);
+        }
+
+        static getDerivedStateFromProps(props, state) {
+          console.log("getDerivedStateFromProps-props", props);
+          console.log("getDerivedStateFromProps-state", state);
+          return null;
+        }
+
+        render() {
+          const { count } = this.state;
+          return <div onClick={this.add}>
+            <div>Test, {count}</div>
+            <div>Parent,{this.props.count}</div>            
+            </div>;
+        }
+      }
+
+      class TestParent extends React.Component {
+        state = {
+          count: 0,
+        };
+        componentDidMount() {
+          setInterval(() => {
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }, 4000);
+        }
+
+        render() {
+          return <Test count={this.state.count} />;
+        }
+      }
+
+      ReactDOM.render(<TestParent />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
