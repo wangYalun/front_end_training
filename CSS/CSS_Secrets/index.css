@@ -1,0 +1,57 @@
+.bg-red {
+  background-color: #f00;
+}
+.bg-yellow {
+  background-color: yellow;
+}
+.block {
+  width: 200px;
+  height: 50px;
+}
+.wrap {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #aaa;
+}
+.position-static {
+  position: static;
+  top: 30px;
+}
+.position-relative {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+dt {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 1em 0;
+}
+
+.newspaper {
+  column-count: 3;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-rule: 2px solid #000;
+  -webkit-column-rule: 2px solid #000;
+  -mox-column-rule: 2px solid #000;
+}
+
+.box-sizing-border {
+  box-sizing: border-box;
+  width: 200px;
+  border: 10px solid #aaa;
+  padding: 10px;
+}
+.box-sizing-content {
+  box-sizing: content-box;
+  width: 200px;
+  border: 10px solid #aaa;
+  border-left: none;
+  padding: 0px;
+}

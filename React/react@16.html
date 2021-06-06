@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React学习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="./babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class Test extends React.Component {
+        parentRef = React.createRef();
+        childRef = React.createRef();
+
+        componentDidMount() {
+          document.addEventListener(
+            "click",
+            () => {
+              console.log("document 原生事件捕获");
+            },
+            true
+          );
+          this.parentRef.current.addEventListener(
+            "click",
+            () => {
+              console.log("Parent 原生事件捕获");
+            },
+            true
+          );
+          this.parentRef.current.addEventListener(
+            "click",
+            () => {
+              console.log("Parent 原生事件冒泡");
+            },
+            false
+          );
+          this.childRef.current.addEventListener(
+            "click",
+            () => {
+              console.log("Child 原生事件捕获");
+            },
+            true
+          );
+          this.childRef.current.addEventListener(
+            "click",
+            () => {
+              console.log("Child 原生事件冒泡");
+            },
+            false
+          );
+          document.addEventListener(
+            "click",
+            () => {
+              console.log("document 原生事件冒泡");
+            },
+            false
+          );
+        }
+
+        onParentClick = () => {
+          console.log("Parent React事件冒泡");
+        };
+        onChildClick = () => {
+          console.log("Child React事件冒泡");
+        };
+        onParentClickCapture = () => {
+          console.log("Parent React事件捕获");
+        };
+        onChildClickCapture = () => {
+          console.log("Child React事件捕获");
+        };
+
+        render() {
+          return (
+            <div
+              ref={this.parentRef}
+              onClick={this.onParentClick}
+              onClickCapture={this.onChildClickCapture}
+            >
+              <button
+                ref={this.childRef}
+                onClick={this.onChildClick}
+                onClickCapture={this.onParentClickCapture}
+              >
+                合成事件执行顺序
+              </button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Test />, document.getElementById("app"));
+    </script>
+  </body>
+</html>

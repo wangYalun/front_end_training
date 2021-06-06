@@ -78,7 +78,7 @@ function schedule() {
 
 function App() {
   const [num, updateNum] = useState(0);
-  const [num1, updateNum1] = useState(0);
+  const [num1, updateNum1 ] = useState(0);
   const [num2, updateNum2] = useState(0);
   // const { num, updateNum } = useNum();
   // const { num2, updateNum2 } = useNum();
